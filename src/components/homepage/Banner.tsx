@@ -3,7 +3,7 @@ import logo from '@/assets/banner.png';
 import Image from 'next/image';
 const Banner = () => {
     return (
-        <div className='container mx-auto px-12 py-6'>
+        <div className='container bg-[#111111] mx-auto px-12 py-6'>
             <div className='flex justify-between items-center my-6'>
                 <div className='grid grid-cols-1 gap-4 items-start'>
                     <p className='text-[#C2F800]'>WORKOUT LIBRARY</p>

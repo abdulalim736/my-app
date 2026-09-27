@@ -4,7 +4,7 @@ import logo from '@/assets/logo.png';
 
 const Navbar = () => {
     return (
-        <div className="navbar bg-base-100 shadow-sm flex justify-between items-center container mx-auto px-10">
+        <div className="navbar bg-[#111111] shadow-sm flex justify-between items-center container mx-auto px-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -20,7 +20,7 @@ const Navbar = () => {
                 </div>
                 <div className='flex gap-2'>
                     <Image src={logo} alt="logo" />
-                    <p className='text-2xl font-bold'>FITLOG</p>
+                    <p className='text-2xl text-white font-bold'>FITLOG</p>
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">
