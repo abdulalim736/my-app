@@ -27,13 +27,13 @@ const Navbar = () => {
                 <ul className="menu menu-horizontal px-1">
 
                     <li><button className='text-[rgb(187,241,10)] text-xl bg-blend-darken font-bold border rounded-4xl'>Worksout</button></li>
-                    <li><button className='text-xl font-semibold'>Myplan</button></li>
+                    <li><button className='text-xl text-amber-50 font-semibold'>Myplan</button></li>
 
                 </ul>
             </div>
             <div className="navbar-end flex gap-6">
-                <button className='text-xl font-semibold'>Plan</button>
-                <button className='text-xl font-semibold'>Save</button>
+                <button className='text-xl text-amber-50 font-semibold'>Plan</button>
+                <button className='text-xl text-amber-50 font-semibold'>Save</button>
             </div>
         </div>
     );

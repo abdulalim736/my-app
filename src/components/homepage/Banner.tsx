@@ -7,8 +7,8 @@ const Banner = () => {
             <div className='flex justify-between items-center my-6'>
                 <div className='grid grid-cols-1 gap-4 items-start'>
                     <p className='text-[#C2F800]'>WORKOUT LIBRARY</p>
-                    <h1 className='text-5xl'>TRAIN WITH INTENT. LOG<br/> EVERY SET.</h1>
-                    <p>
+                    <h1 className='text-5xl text-amber-50'>TRAIN WITH INTENT. LOG<br/> EVERY SET.</h1>
+                    <p className='text-amber-50'>
                         FitLog is a dark, no-nonsense gym companion: pick a lift, lock it<br/> into
                         today&apos;s plan, and watch the week&apos;s work add up.
                     </p>
