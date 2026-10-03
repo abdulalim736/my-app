@@ -56,7 +56,7 @@ const WorkerCard = ({ Worker }: WorkerCardProps) => {
             </div>
 
             <div>
-                <Link href={"/workout/&{workout.id}"}>
+                <Link href={`/Worksout/${Worker.id}`}>
                 
                 <button className="w-full rounded-lg bg-lime-400 py-3 font-bold text-black transition hover:bg-lime-300">
                     View Workout →

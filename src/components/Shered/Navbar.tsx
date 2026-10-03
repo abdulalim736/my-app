@@ -19,7 +19,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className='flex gap-2'>
-                    <Image src={logo} alt="logo" />
+                    <Image className='h-10 w-10' src={logo} alt="logo" />
                     <p className='text-2xl text-white font-bold'>FITLOG</p>
                 </div>
             </div>

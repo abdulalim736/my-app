@@ -15,7 +15,7 @@ const Banner = () => {
                     <span><button className='bg-[#C2F800] px-6 py-3 font-semibold'>BROWSE WORKOUTS</button></span>
                 </div>
                 <div>
-                    <Image src={logo} alt="FitLog banner" />
+                    <Image className='h-full w-full' src={logo} alt="FitLog banner" />
                 </div>
             </div>
         </div>
