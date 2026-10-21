@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Shered/Navbar";
 import WorkoutProvider from "@/contex/WorkoutContex";
+import { Toaster } from "react-hot-toast";
 
 
 const geistSans = Geist({
@@ -27,13 +28,29 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-      <WorkoutProvider>
-        <Navbar/>
-        <div>
-          {children}
-        </div>
-        <h2 className="text-2xl text-amber-400"> Footer</h2>
-      </WorkoutProvider>
+
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            style: {
+              background: "#1a1a1a",
+              color: "#fff",
+              border: "1px solid #2a2a2a",
+            },
+            success: {
+              iconTheme: { primary: "#ccff00", secondary: "#0a0a0a" },
+            },
+          }}
+        />
+
+        <WorkoutProvider>
+          <Navbar />
+          <div>
+            {children}
+          </div>
+          <h2 className="text-2xl text-amber-400"> Footer</h2>
+        </WorkoutProvider>
+        
       </body>
     </html>
   );

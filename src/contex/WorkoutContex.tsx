@@ -1,22 +1,42 @@
 "use client";   
 
+import { Iworker } from '@/app/types/worker';
 import React, { createContext, useState } from 'react'
 
-const WorkoutContext = createContext({});
 
+
+interface WorkoutContextType {
+    Plan: Iworker[];
+    setPlan: React.Dispatch<React.SetStateAction<Iworker[]>>;
+    saved: Iworker[];
+    setsaved: React.Dispatch<React.SetStateAction<Iworker[]>>;
+
+}
+
+export const WorkoutContext = createContext<WorkoutContextType>({
+   
+    Plan: [],
+    setPlan: () => {},
+    saved: [],
+    setsaved: () => {}
+});
 
 const WorkoutProvider = ({children}: {children: React.ReactNode}) => {
 
-    const  [Workouts, setWorkouts] = useState([]);
 
-    const  [MyPlan, setMyPlan] = useState([]);
+    const [Plan, setPlan] = useState<Iworker[]>([]);
 
-    const sharedState = {
-        Workouts,
-        setWorkouts,
-        MyPlan,
-        setMyPlan
-    };  
+    const [saved, setsaved] = useState<Iworker[]>([]);
+
+    const sharedState: WorkoutContextType = {
+       
+        
+        Plan,
+        setPlan,
+        saved,
+        setsaved
+        
+    };
 
 
     

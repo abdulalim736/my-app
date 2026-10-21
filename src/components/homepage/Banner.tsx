@@ -12,7 +12,7 @@ const Banner = () => {
                         FitLog is a dark, no-nonsense gym companion: pick a lift, lock it<br/> into
                         today&apos;s plan, and watch the week&apos;s work add up.
                     </p>
-                    <span><button className='bg-[#C2F800] px-6 py-3 font-semibold'>BROWSE WORKOUTS</button></span>
+                    <span><button className='bg-[#C2F800] px-6 py-3 font-semibold border-rounded-2xl'>BROWSE WORKOUTS</button></span>
                 </div>
                 <div>
                     <Image className='h-full w-full' src={logo} alt="FitLog banner" />

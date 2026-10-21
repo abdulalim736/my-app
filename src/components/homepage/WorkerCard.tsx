@@ -35,7 +35,7 @@ const WorkerCard = ({ Worker }: WorkerCardProps) => {
             <div>
 
                 <h2 className="mb-2 text-xl font-bold">
-                    {Worker.name}
+                    {Worker.name.toUpperCase()}
                 </h2>
             </div>
 
@@ -57,10 +57,10 @@ const WorkerCard = ({ Worker }: WorkerCardProps) => {
 
             <div>
                 <Link href={`/Worksout/${Worker.id}`}>
-                
-                <button className="w-full rounded-lg bg-lime-400 py-3 font-bold text-black transition hover:bg-lime-300">
-                    View Workout →
-                </button>
+
+                    <button className="w-full rounded-lg bg-lime-400 py-3 font-bold text-black transition hover:bg-lime-300">
+                        View Workout →
+                    </button>
 
                 </Link>
             </div>

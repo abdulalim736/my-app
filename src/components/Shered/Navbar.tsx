@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import React from 'react';
 import logo from '@/assets/logo.png';
+import Link from 'next/link';
 
 const Navbar = () => {
     return (
@@ -13,27 +13,36 @@ const Navbar = () => {
                     <ul
                         tabIndex={-1}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        <li><button>Worksout</button></li>
+                        <Link href="/Worksout"> </Link>
 
-                        <li><button>Myplan</button></li>
+                        <Link href="/Myplan"> </Link>
                     </ul>
                 </div>
                 <div className='flex gap-2'>
-                    <Image className='h-10 w-10' src={logo} alt="logo" />
+                    <Image className='h-5 w-5' src={logo} alt="logo" />
                     <p className='text-2xl text-white font-bold'>FITLOG</p>
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
 
-                    <li><button className='text-[rgb(187,241,10)] text-xl bg-blend-darken font-bold border rounded-4xl'>Worksout</button></li>
-                    <li><button className='text-xl text-amber-50 font-semibold'>Myplan</button></li>
+                    <Link href="/">
+                        <li><button className='text-[rgb(187,241,10)] text-xl bg-blend-darken font-bold border rounded-4xl'>Worksout</button></li>
+                    </Link>
+                    <Link href="/Myplan">
+                        <li><button className='text-xl text-amber-50 font-semibold'>Myplan</button></li>
+                    </Link>
 
                 </ul>
             </div>
             <div className="navbar-end flex gap-6">
-                <button className='text-xl text-amber-50 font-semibold'>Plan</button>
-                <button className='text-xl text-amber-50 font-semibold'>Save</button>
+                <button className="btn">
+                    Plan <div className="badge badge-sm badge-accent">0</div>
+                </button>
+
+                <button className="btn">
+                    Saved <div className="badge badge-sm badge-outline">0</div>
+                </button>
             </div>
         </div>
     );

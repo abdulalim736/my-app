@@ -1,8 +1,7 @@
 import { Iworker } from '@/app/types/worker';
 import Image from 'next/image';
-import React from 'react';
-import logo from '@/assets/add.png';
 import logo2 from '@/assets/save.png';
+import AddButton from '@/components/workoutdetail/AddButton';
 
 interface WorksoutDetailProps {
     params: Promise<{
@@ -37,14 +36,14 @@ const WorksoutDetail = async ({ params }: WorksoutDetailProps) => {
                         <Image className="rounded-xl overflow-hidden"
                             src={Worker.image}
                             alt="Album"
-                            width={740}
-                            height={740}
+                            width={600}
+                            height={600}
                         />
                     </figure>
                 </div>
                 <div>
                     <div className="card-body">
-                        <h2 className="card-title text-amber-50 text-3xl">{Worker.name}</h2>
+                        <h2 className="card-title text-amber-50 text-3xl">{Worker.name.toUpperCase()}</h2>
                         <p className="text-amber-50">{Worker.description}</p>
                         <div className="flex gap-2 mt-5">
                             {Worker.muscleGroups.map((muscle) => (
@@ -97,8 +96,9 @@ const WorksoutDetail = async ({ params }: WorksoutDetailProps) => {
                         </div>
 
                         <div className="card-actions flex gap-10 mt-5">
-                            <button className="btn p-2 bg-[#CCFF00]"> <Image className='h-5 w-5' src= {logo} alt="Add to plan" />  Add to today&apos;s plan</button>
-                            <button className="btn p-2 btn-neutral"> <Image className='h-5 w-5 border bg-amber-50' src= {logo2} alt="Save"/> Save for later</button>
+                            <AddButton Worker={Worker}/>
+
+                            <button className="btn p-2 btn-neutral border-amber-50"> <Image className='h-5 w-5 border bg-amber-50' src= {logo2} alt="Save"/> Save for later</button>
                         </div>
                     </div>
                 </div>
