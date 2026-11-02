@@ -1,47 +1,71 @@
-"use client";   
+"use client";
 
 import { Iworker } from '@/app/types/worker';
 import React, { createContext, useState } from 'react'
+import toast from 'react-hot-toast';
+
 
 
 
 interface WorkoutContextType {
-    Plan: Iworker[];
-    setPlan: React.Dispatch<React.SetStateAction<Iworker[]>>;
-    saved: Iworker[];
-    setsaved: React.Dispatch<React.SetStateAction<Iworker[]>>;
+    todaysPlans: Iworker[];
+    setTodaysPlans: React.Dispatch<React.SetStateAction<Iworker[]>>;
+    savedPlans: Iworker[];
+    setSavedPlans: React.Dispatch<React.SetStateAction<Iworker[]>>;
+    MarkAsDone: (id: number) => void;
+    removeFromTodaysPlan: (id: number) => void;
+    removeFromsavedPlans: (id: number) => void;
 
 }
 
 export const WorkoutContext = createContext<WorkoutContextType>({
-   
-    Plan: [],
-    setPlan: () => {},
-    saved: [],
-    setsaved: () => {}
+    todaysPlans: [],
+    setTodaysPlans: () => { },
+    savedPlans: [],
+    setSavedPlans: () => { },
+    MarkAsDone: () => { },
+    removeFromTodaysPlan: () => { },
+    removeFromsavedPlans: () => { },
 });
 
-const WorkoutProvider = ({children}: {children: React.ReactNode}) => {
+const WorkoutProvider = ({ children }: { children: React.ReactNode }) => {
 
 
-    const [Plan, setPlan] = useState<Iworker[]>([]);
+    const [todaysPlans, setTodaysPlans] = useState<Iworker[]>([]);
+    const [savedPlans, setSavedPlans] = useState<Iworker[]>([]);
 
-    const [saved, setsaved] = useState<Iworker[]>([]);
+    const removeFromTodaysPlan = (id: number) => {
+        setTodaysPlans((prev) => prev.filter((item) => item.id !== id));
+        toast.success(`${Worker.name} removed from today's plan`);
+    };
 
-    const sharedState: WorkoutContextType = {
-       
-        
-        Plan,
-        setPlan,
-        saved,
-        setsaved
-        
+    const MarkAsDone = (id: number) => {
+        setTodaysPlans((prev) =>
+            prev.map((item) =>
+                item.id === id ? { ...item, isDone: true } : item
+            )
+        );
+        toast.success("Workout done! Great job! 🎉");
+    };
+
+    const removeFromsavedPlans = (id: number) => {
+        setSavedPlans((plans) => plans.filter((plan) => plan.id !== id));
+        toast.success(`${Worker.name} removed from saved plans`);
     };
 
 
-    
+    const sharedData = {
+        todaysPlans,
+        setTodaysPlans,
+        savedPlans,
+        setSavedPlans,
+        MarkAsDone,
+        removeFromTodaysPlan,
+        removeFromsavedPlans,
+    };
 
-    return <WorkoutContext.Provider value={sharedState}>{children}</WorkoutContext.Provider>;    
+
+    return <WorkoutContext.Provider value={sharedData}>{children}</WorkoutContext.Provider>;
 };
 
 export default WorkoutProvider;

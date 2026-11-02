@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Shered/Navbar";
 import WorkoutProvider from "@/contex/WorkoutContex";
 import { Toaster } from "react-hot-toast";
+import Footer from "@/components/Shered/Footer";
 
 
 const geistSans = Geist({
@@ -48,7 +49,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <div>
             {children}
           </div>
-          <h2 className="text-2xl text-amber-400"> Footer</h2>
+          <Footer />
         </WorkoutProvider>
         
       </body>

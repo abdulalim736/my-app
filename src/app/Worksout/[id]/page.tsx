@@ -1,7 +1,12 @@
-import { Iworker } from '@/app/types/worker';
+
+
+
 import Image from 'next/image';
-import logo2 from '@/assets/save.png';
-import AddButton from '@/components/workoutdetail/AddButton';
+import AddToPlanButton from '@/components/homepage/AddToPlanButton';
+import { getWorkers } from '@/lib/apps';
+import AddToSavedButton from '@/components/homepage/AddToSavedButton';
+
+
 
 interface WorksoutDetailProps {
     params: Promise<{
@@ -9,27 +14,16 @@ interface WorksoutDetailProps {
     }>;
 }
 
-const getWorkers = async (): Promise<Iworker[]> => {
-    try {
-        const res = await fetch('https://api.abcz.workers.dev/api/fitlog');
-        const data = await res.json();
-        return data;
-    } catch {
-        throw new Error('fail to fetch data');
-    }
-};
-
-
 const WorksoutDetail = async ({ params }: WorksoutDetailProps) => {
     const { id } = await params;
-    const workers = await getWorkers();
+    const workers = await getWorkers(); 
     const Worker = workers.find((worker) => String(worker.id) === String(id));
     if (!Worker) {
         return <div>Worker not found.</div>;
     }
 
     return (
-        <div className="card bg-black shadow-sm">
+        <div className="card bg-black shadow-sm container mx-auto px-12 py-6">
             <div className="flex justify-between gap-5">
                 <div>
                     <figure>
@@ -95,11 +89,10 @@ const WorksoutDetail = async ({ params }: WorksoutDetailProps) => {
                             </ol>
                         </div>
 
-                        <div className="card-actions flex gap-10 mt-5">
-                            <AddButton Worker={Worker}/>
-
-                            <button className="btn p-2 btn-neutral border-amber-50"> <Image className='h-5 w-5 border bg-amber-50' src= {logo2} alt="Save"/> Save for later</button>
-                        </div>
+                    </div>
+                    <div className='flex gap-5 justify-baseline'>
+                        <AddToPlanButton {...Worker} />
+                        <AddToSavedButton {...Worker}/>
                     </div>
                 </div>
             </div>
