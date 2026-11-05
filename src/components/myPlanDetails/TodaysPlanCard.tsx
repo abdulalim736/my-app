@@ -9,12 +9,12 @@ import check from "@/assets/check.png";
 
 interface TodaysPlanCardProps {
     Worker: Iworker;
-    MarkAsDone:(id:number)=> void;
-    removeFromTodaysPlan:(id:number)=> void;
+    MarkAsDone: (id: number) => void;
+    removeFromTodaysPlan: (id: number) => void;
 };
 
-const TodaysPlanCard = ({ Worker, MarkAsDone, removeFromTodaysPlan}: TodaysPlanCardProps) => {
-            
+const TodaysPlanCard = ({ Worker, MarkAsDone, removeFromTodaysPlan }: TodaysPlanCardProps) => {
+
     return (
         <div className=" container max-w-7xl
          flex flex-col lg:flex-row justify-between
@@ -72,10 +72,20 @@ const TodaysPlanCard = ({ Worker, MarkAsDone, removeFromTodaysPlan}: TodaysPlanC
                     </button>
                 </Link>
 
-                <button className="flex gap-2 rounded-2xl bg-[#C2F800] p-2 text-black" onClick={() => MarkAsDone(Worker.id)}>
-                    <Image className="shrink-0" src={check} height={30} width={30} alt="checkmark" />
-                    Mark as Done
+
+                <button
+                    onClick={() => MarkAsDone(Worker.id)}
+                    disabled={Worker.isDone}
+                    className={`flex flex-1 lg:flex-none justify-center items-center gap-2 px-4 py-3 rounded-xl font-semibold text-sm transition-all duration-300 ${Worker.isDone
+                            ? "bg-gray-600 text-gray-300 cursor-not-allowed opacity-60"
+                            : "bg-[#C2F800] text-black hover:bg-lime-400"
+                        }`}
+                >
+                    <Image src={check} alt="Complete" width={22} height={22} />
+
+                    {Worker.isDone ? "Completed" : "Mark as Done"}
                 </button>
+
 
                 <button className="rounded-2xl p-2" onClick={() => removeFromTodaysPlan(Worker.id)}>
                     <Image className="bg-base-300 shrink-0" src={remove} height={30} width={30} alt="Removebutton" />
