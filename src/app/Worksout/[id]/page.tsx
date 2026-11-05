@@ -23,11 +23,11 @@ const WorksoutDetail = async ({ params }: WorksoutDetailProps) => {
     }
 
     return (
-        <div className="card bg-black shadow-sm container mx-auto px-12 py-6">
-            <div className="flex justify-between gap-5">
-                <div>
+        <div className="card bg-black shadow-sm container max-w-7xl mx-auto px-12 py-6 min-h-screen items-center">
+            <div className=" grid grid-cols-1 md:grid-cols-2 md: gap-2 items-center">
+                <div className=" relative aspect-4/3 w-full">
                     <figure>
-                        <Image className="rounded-xl overflow-hidden"
+                        <Image className="rounded-xl overflow-hidden object-cover"
                             src={Worker.image}
                             alt="Album"
                             width={600}
@@ -90,7 +90,7 @@ const WorksoutDetail = async ({ params }: WorksoutDetailProps) => {
                         </div>
 
                     </div>
-                    <div className='flex gap-5 justify-baseline'>
+                    <div className='flex flex-col gap-3 mt-5 sm:flex-row'>
                         <AddToPlanButton {...Worker} />
                         <AddToSavedButton {...Worker}/>
                     </div>

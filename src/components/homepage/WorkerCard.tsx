@@ -1,7 +1,7 @@
 import { Iworker } from '@/app/types/worker';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+
 
 interface WorkerCardProps {
     Worker: Iworker;
