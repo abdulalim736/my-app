@@ -17,7 +17,7 @@ const WorkerCard = ({ Worker }: WorkerCardProps) => {
                     alt=""
                     width={740}
                     height={740}
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                    className="h-full w-full rounded-2xl object-cover transition duration-500 group-hover:scale-110"
                 />
             </div>
 
